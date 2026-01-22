@@ -1,4 +1,4 @@
-# Proxmox Backup Server by HTTP - Disk check
+# Proxmox VE by HTTP – Backup check (Zabbix add-on)
 Zabbix Template that enable monitoring of backup status for every hosts that have a desidered tag on Proxmox PVE nodes  
 
 It used to be added to the official [Proxmox VE by HTTP](https://www.zabbix.com/integrations/proxmox) template because it shares many MACROS  
@@ -7,7 +7,8 @@ Tested with Proxmox VE by HTTP on Zabbix Server 6.0 LTS
 All the MACROS used are explained in the template  
 
 ## Instructions
-Add SNMP interface with the ip of the Proxmox node  
+Add an SNMP interface with the IP address of the Proxmox VE node.  
+The interface is required by Zabbix to attach the template, but it is not used for data collection.  
 
 Edit macro {$PVE.HOSTNAME} with the hostname of the node  
 
@@ -36,3 +37,7 @@ Note: All the 3 permissions are needed to get the template working
 In the Zabbix Host modify the Macro {$PVE.TOKEN.ID} and {$PVE.TOKEN.SECRET} with the values we saved before  
 
 There credentials are shared across all the nodes  
+
+## Requirements
+- Zabbix: 6.0+ (tested on 6.0 LTS)
+- Proxmox VE API access via user + API token
